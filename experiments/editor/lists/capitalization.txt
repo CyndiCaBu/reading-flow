@@ -1,0 +1,848 @@
+Alabama
+Alaska
+Arizona
+Arkansas
+California
+Colorado
+Connecticut
+Delaware
+Florida
+Georgia
+Hawaii
+Idaho
+Illinois
+Indiana
+Iowa
+Kansas
+Kentucky
+Louisiana
+Maine
+Maryland
+Massachusetts
+Michigan
+Minnesota
+Mississippi
+Missouri
+Montana
+Nebraska
+Nevada
+New Hampshire
+New Jersey
+New Mexico
+New York
+North Carolina
+North Dakota
+Ohio
+Oklahoma
+Oregon
+Pennsylvania
+Rhode Island
+South Carolina
+South Dakota
+Tennessee
+Texas
+Utah
+Vermont
+Virginia
+Washington
+West Virginia
+Wisconsin
+Wyoming
+Montgomery
+Juneau
+Phoenix
+Little Rock
+Sacramento
+Denver
+Hartford
+Dover
+Tallahassee
+Atlanta
+Honolulu
+Boise
+Springfield
+Indianapolis
+Des Moines
+Topeka
+Frankfort
+Baton Rouge
+Augusta
+Annapolis
+Boston
+Lansing
+Saint Paul
+Jackson
+Jefferson City
+Helena
+Lincoln
+Carson City
+Concord
+Trenton
+Santa Fe
+Albany
+Raleigh
+Bismarck
+Columbus
+Oklahoma City
+Salem
+Harrisburg
+Providence
+Columbia
+Pierre
+Nashville
+Austin
+Salt Lake City
+Montpelier
+Richmond
+Olympia
+Charleston
+Madison
+Cheyenne
+January
+February
+March
+April
+May
+June
+July
+August
+September
+October
+November
+December
+Monday
+Tuesday
+Wednesday
+Thursday
+Friday
+Saturday
+Sunday
+Afghanistan
+Albania
+Algeria
+Andorra
+Angola
+Antigua and Barbuda
+Argentina
+Armenia
+Australia
+Austria
+Azerbaijan
+Bahamas
+Bahrain
+Bangladesh
+Barbados
+Belarus
+Belgium
+Belize
+Benin
+Bhutan
+Bolivia
+Bosnia and Herzegovina
+Botswana
+Brazil
+Brunei
+Bulgaria
+Burkina Faso
+Burundi
+Cabo Verde
+Cambodia
+Cameroon
+Canada
+Central African Republic (CAR)
+Chad
+Chile
+China
+Colombia
+Comoros
+Democratic Republic of the Congo
+Republic of the Congo
+Costa Rica
+Cote d'Ivoire
+Croatia
+Cuba
+Cyprus
+Czechia
+Denmark
+Djibouti
+Dominica
+Dominican Republic
+Ecuador
+Egypt
+El Salvador
+Equatorial Guinea
+Eritrea
+Estonia
+Eswatini
+Swaziland
+Ethiopia
+Fiji
+Finland
+France
+Gabon
+Gambia
+Georgia
+Germany
+Ghana
+Greece
+Grenada
+Guatemala
+Guinea
+Guinea-Bissau
+Guyana
+Haiti
+Honduras
+Hungary
+Iceland
+India
+Indonesia
+Iran
+Iraq
+Ireland
+Israel
+Italy
+Jamaica
+Japan
+Jordan
+Kazakhstan
+Kenya
+Kiribati
+Kosovo
+Kuwait
+Kyrgyzstan
+Laos
+Latvia
+Lebanon
+Lesotho
+Liberia
+Libya
+Liechtenstein
+Lithuania
+Luxembourg
+Madagascar
+Malawi
+Malaysia
+Maldives
+Mali
+Malta
+Marshall Islands
+Mauritania
+Mauritius
+Mexico
+Micronesia
+Moldova
+Monaco
+Mongolia
+Montenegro
+Morocco
+Mozambique
+Myanmar
+Namibia
+Nauru
+Nepal
+Netherlands
+New Zealand
+Nicaragua
+Niger
+Nigeria
+North Korea
+North Macedonia
+Macedonia
+Norway
+Oman
+Pakistan
+Palau
+Palestine
+Panama
+Papua New Guinea
+Paraguay
+Peru
+Philippines
+Poland
+Portugal
+Qatar
+Romania
+Russia
+Rwanda
+Saint Kitts and Nevis
+Saint Lucia
+Saint Vincent and the Grenadines
+Samoa
+San Marino
+Sao Tome and Principe
+Saudi Arabia
+Senegal
+Serbia
+Seychelles
+Sierra Leone
+Singapore
+Slovakia
+Slovenia
+Solomon Islands
+Somalia
+South Africa
+South Korea
+South Sudan
+Spain
+Sri Lanka
+Sudan
+Suriname
+Sweden
+Switzerland
+Syria
+Taiwan
+Tajikistan
+Tanzania
+Thailand
+Timor-Leste
+Togo
+Tonga
+Trinidad and Tobago
+Tunisia
+Turkey
+Turkmenistan
+Tuvalu
+Uganda
+Ukraine
+United Arab Emirates
+UAE
+United Kingdom
+UK
+United States of America
+USA
+Uruguay
+Uzbekistan
+Vanuatu
+Vatican City
+Holy See
+Venezuela
+Vietnam
+Yemen
+Zambia
+Zimbabwe
+Abu Dhabi
+Abuja
+Accra
+Adamstown
+Addis Ababa
+Algiers
+Alofi
+Amman
+Amsterdam
+The Hague
+Andorra la Vella
+Ankara
+Antananarivo
+Apia
+Ashgabat
+Asmara
+Asunción
+Athens
+Avarua
+Baghdad
+Baku
+Bamako
+Bandar Seri Begawan
+Bangkok
+Bangui
+Banjul
+Basseterre
+Beijing
+Beirut
+Belgrade
+Belmopan
+Berlin
+Bern
+Bishkek
+Bissau
+Bogotá
+Brasília
+Bratislava
+Brazzaville
+Bridgetown
+Brussels
+Bucharest
+Budapest
+Buenos Aires
+Cairo
+Canberra
+Caracas
+Castries
+Charlotte Amalie
+Chișinău
+Cockburn Town
+Conakry
+Copenhagen
+Dakar
+Damascus
+Dhaka
+Dili
+Djibouti
+Dodoma
+Dar es Salaam
+Doha
+Douglas
+Dublin
+Dushanbe
+Edinburgh of the Seven Seas
+El Aioun
+Tifariti
+Episkopi Cantonment
+Flying Fish Cove
+Freetown
+Funafuti
+Gaborone
+George Town
+Georgetown
+Georgetown
+Gibraltar
+Gitega
+Guatemala City
+Gustavia
+Hagåtña
+Hamilton
+Hanga Roa
+Hanoi
+Harare
+Hargeisa
+Havana
+Helsinki
+Honiara
+Islamabad
+Jakarta
+Jamestown
+Azaz
+Jerusalem
+Juba
+Kabul
+Kampala
+Kathmandu
+Khartoum
+Kiev
+Kigali
+King Edward Point
+Kingston
+Kingston
+Kingstown
+Kinshasa
+Kuala Lumpur
+Putrajaya
+Kuwait City
+Libreville
+Lilongwe
+Lima
+Lisbon
+Ljubljana
+Lomé
+London
+Luanda
+Lusaka
+Luxembourg
+Madrid
+Majuro
+Malabo
+Malé
+Managua
+Manama
+Manila
+Maputo
+Marigot
+Maseru
+Mata-Utu
+Mbabane
+Lobamba
+Mexico City
+Minsk
+Mogadishu
+Monaco
+Monrovia
+Montevideo
+Moroni
+Moscow
+Muscat
+Nairobi
+Nassau
+Naypyidaw
+N'Djamena
+New Delhi
+Ngerulmud
+Niamey
+Nicosia
+Nicosia
+Nouakchott
+Nouméa
+Nukuʻalofa
+Nur-Sultan
+Nuuk
+Oranjestad
+Oslo
+Ottawa
+Ouagadougou
+Pago Pago
+Palikir
+Panama City
+Papeete
+Paramaribo
+Paris
+Philipsburg
+Phnom Penh
+Plymouth
+Brades Estate
+Podgorica
+Cetinje
+Port Louis
+Port Moresby
+Port Vila
+Port-au-Prince
+Port of Spain
+Porto-Novo
+Cotonou
+Prague
+Praia
+Pretoria
+Bloemfontein
+Cape Town
+Pristina
+Pyongyang
+Quito
+Rabat
+Ramallah
+Reykjavík
+Riga
+Riyadh
+Road Town
+Rome
+Roseau
+Saipan
+San José
+San Juan
+San Marino
+San Salvador
+Sana'a
+Aden
+Santiago
+Valparaíso
+Santo Domingo
+São Tomé
+Sarajevo
+Seoul
+Singapore
+Skopje
+Sofia
+Sri Jayawardenepura Kotte
+Colombo
+St. George's
+St. Helier
+St. John's
+St. Peter Port
+St. Pierre
+Stanley
+Stepanakert
+Stockholm
+Sucre
+La Paz
+Sukhumi
+Suva
+Taipei
+Tallinn
+Tarawa
+Tashkent
+Tbilisi
+Kutaisi
+Tegucigalpa
+Tehran
+Thimphu
+Tirana
+Tiraspol
+Tokyo
+Tórshavn
+Tripoli
+Tskhinvali
+Tunis
+Ulaanbaatar
+Vaduz
+Valletta
+The Valley
+Vatican City
+Victoria
+Vienna
+Vientiane
+Vilnius
+Warsaw
+Washington, D.C.
+Wellington
+West Island
+Willemstad
+Windhoek
+Yamoussoukro
+Abidjan
+Yaoundé
+Yaren
+Yerevan
+Zagreb
+Afghans
+Albanians
+Algerians
+Americans
+Andorrans
+Angolans
+Antiguans and Barbudans
+Argentines
+Armenians
+Arubans
+Australians
+Austrians
+Azerbaijanis
+Bahamians
+Bahrainis
+Bangladeshis
+Barbadians
+Basques
+Belarusians
+Belgians
+Belizeans
+Beninese
+Bermudians
+Bhutanese
+Bolivians
+Bosniaks
+Bosnians
+Herzegovinians
+Botswana
+Brazilians
+Bretons
+British
+British Virgin Islanders
+Bruneians
+Bulgarians
+Macedonian Bulgarians
+Burkinabés
+Burmese
+Burundians
+Cambodians
+Cameroonians
+Canadians
+Catalans
+Cape Verdeans
+Chadians
+Chileans
+Chinese
+Colombians
+Comorians
+Congolese
+Costa Ricans
+Croatians
+Cubans
+Cypriots
+Czechs
+Danes
+Greenlanders
+Djiboutians
+Dominicans
+Dutch
+East Timorese
+Ecuadorians
+Egyptians
+Emiratis
+English
+Equatoguineans
+Eritreans
+Estonians
+Ethiopians
+Falkland Islanders
+Faroese
+Fijians
+Finns
+Finnish Swedish
+Filipinos
+French citizens
+Gabonese
+Gambians
+Georgians
+Germans
+Baltic Germans
+Ghanaians
+Gibraltarians
+Greeks
+Greek Macedonians
+Grenadians
+Guatemalans
+Guianese
+Guineans
+Guinea-Bissau nationals
+Guyanese
+Haitians
+Hondurans
+Hong Kongers
+Hungarians
+Icelanders
+I-Kiribati
+Indians
+Indonesians
+Iranians
+Iraqis
+Irish
+Israelis
+Italians
+Ivoirians
+Jamaicans
+Japanese
+Jordanians
+Kazakhs
+Kenyans
+Koreans
+Kosovars
+Kuwaitis
+Kyrgyzs
+Lao
+Latvians
+Lebanese
+Liberians
+Libyans
+Liechtensteiners
+Lithuanians
+Luxembourgers
+Macao
+Macedonians
+Malagasy
+Malawians
+Malaysians
+Maldivians
+Malians
+Maltese
+Manx
+Marshallese
+Mauritanians
+Mauritians
+Mexicans
+Micronesians
+Moldovans
+Monégasque
+Mongolians
+Montenegrins
+Moroccans
+Mozambicans
+Namibians
+Naurans
+Nepalese
+New Zealanders
+Nicaraguans
+Nigeriens
+Nigerians
+Norwegians
+Omani
+Pakistanis
+Palauans
+Palestinians
+Panamanians
+Papua New Guineans
+Paraguayans
+Peruvians
+Poles
+Portuguese
+Puerto Ricans
+Qatari
+Quebecers
+Réunionnais
+Romanians
+Russians
+Baltic Russians
+Rwandans
+Saint Kitts and Nevis
+Saint Lucians
+Salvadorans
+Sammarinese
+Samoans
+São Tomé and Príncipe
+Saudis
+Scots
+Senegalese
+Serbs
+Seychellois
+Sierra Leoneans
+Singaporeans
+Slovaks
+Slovenes
+Solomon Islanders
+Somalis
+Somalilanders
+Sotho
+South Africans
+Spaniards
+Sri Lankans
+Sudanese
+Surinamese
+Swazi
+Swedes
+Swiss
+Syriacs
+Syrians
+Taiwanese
+Tamils
+Tajik
+Tanzanians
+Thais
+Tibetans
+Tobagonians
+Togolese
+Tongans
+Trinidadians
+Tunisians
+Turks
+Tuvaluans
+Ugandans
+Ukrainians
+Uruguayans
+Uzbeks
+Vanuatuans
+Venezuelans
+Vietnamese
+Vincentians
+Welsh
+Yemenis
+Zambians
+Zimbabweans
+Aromanians
+Assyrians
+Basques
+Bengalis
+Berbers
+Boers
+Buryats
+Cajuns
+Catalans
+Celts
+Chuvash
+Han Chinese
+Hispanic Americans
+Latino Americans
+Hutus
+Igbo
+Indigenous Australians
+Indigenous people of the Americas
+First Nations
+Huaorani people
+Inuit
+Canadian Inuit
+Greenlandic Inuit
+Métis people
+Native Americans
+Malayali
+Jews
+Kannadigas
+Karen
+Kodavas
+Kurds
+Macedonians
+Malays
+Roma
+Samis
+Sikhs
+Silesians
+Sindhis
+Sinhalese
+Syriacs
+Tamils
+Tatars
+Tutsis
+Zulus

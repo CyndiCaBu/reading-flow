@@ -1,4 +1,32 @@
 /**
+ * Capitalization Filter uses a dictionary (hash-map) to check if an
+ * input word is capitalized correctly. Pass the properly capitalized
+ * word to the `.add` method.
+ */
+function CapitalizationFilter( passIfUnknown ){
+	this._words = {};
+	this.passIfUnknown = passIfUnknown;
+}
+CapitalizationFilter.prototype.add = function( word ){
+	this._words[word.toLowerCase()] = word;
+};
+CapitalizationFilter.prototype.test = function( word ){
+	var lowerCaseWord = word.toLowerCase();
+	if( this._words.hasOwnProperty( lowerCaseWord ) ){
+		return (word == this._words[lowerCaseWord]);
+	}else{
+		return this.passIfUnknown;
+	}
+};
+CapitalizationFilter.prototype.suggest = function( word ){
+	var lowerCaseWord = word.toLowerCase();
+	if( this._words.hasOwnProperty( lowerCaseWord ) ){
+		return this._words[lowerCaseWord];
+	}
+	return '';
+};
+
+/**
  * WordFilter is the abstract base class (or interface) for the
  * things that will be used to mark/match words in some way.
  */
@@ -12,7 +40,12 @@ WordFilter.prototype.test = function(word){
 	// returns true if the word is in the list
 	// returns false if the word is not in the list
 }
+WordFilter.prototype.suggest = function( word ){
+	// returns a suggestion based on the error
+}
 
+// NOTE: Cuckoo may be better than bloom
+// https://github.com/vijayee/cuckoo-filter
 /**
  * WordFilterBloom uses a bloom filter to test is a word is in the
  * list. Since it is a bloom filter it can tell if a word is
@@ -35,6 +68,9 @@ WordFilterBloom.prototype.add = function(word){
 WordFilterBloom.prototype.test = function(word){
 	return this._bloomFilter.test( word );
 }
+WordFilterBloom.prototype.suggest = function( word ){
+	return '';
+}
 
 /**
  * WordFilterListSearch stores the words as a list and searches
@@ -53,6 +89,9 @@ WordFilterListSearch.prototype.add = function(word){
 WordFilterListSearch.prototype.test = function(word){
 	return (this._words.indexOf( word ) > -1);
 }
+WordFilterListSearch.prototype.suggest = function( word ){
+	return '';
+}
 
 /**
  * WordFilterHashMap uses a hashmap (implemented as a javascript
@@ -69,6 +108,9 @@ WordFilterHashMap.prototype.add = function(word){
 }
 WordFilterHashMap.prototype.test = function(word){
 	return this._words.hasOwnProperty(word);
+}
+WordFilterHashMap.prototype.suggest = function( word ){
+	return '';
 }
 
 /**
@@ -129,6 +171,37 @@ NonWord.prototype.isNonWord = function(){
 NonWord.prototype.addAnnotation = function( annotation ){
 	// should not do anything, non-words do not have annotations
 	return;
+}
+
+function Annotation( message, type ){
+	this.message = message;
+	this.type = type;
+}
+Annotation.prototype.apply = function( data ){
+	return new Annotation( this.message.replace('$1',data), this.type );
+}
+
+function AnnotatedHtmlGenerator(){
+}
+function TippyHtmlGenerator( selectorClass ){
+	this.selectorClass = selectorClass;
+}
+TippyHtmlGenerator.prototype.generateHtmlForWord = function( word ){
+	var cssClasses = [this.selectorClass];
+	var messages = [];
+	for( var i=0,l=word.annotations.length; i<l; i+=1 ){
+		var annotation = word.annotations[i]
+		cssClasses.push( annotation.type );
+		messages.push( annotation.message );
+	}
+	var output = '';
+	output += '<span ';
+	output += ' class="'+ cssClasses.join(' ') +'"';
+	output += ' data-tippy-content="'+ messages.join('<br/>') +'"';
+	output += '>';
+	output += word.raw;
+	output += '</span>';
+	return output;
 }
 
 /**
@@ -206,7 +279,8 @@ TextWordAnalyzer.prototype.markFailures = function( filter, annotation ){
 	for( var a=0; a<this.getWordCount(); a+=1 ){
 		var word = this._getWord(a);
 		if( ! filter.test( word.raw.toLowerCase() ) ){
-			word.addAnnotation(annotation);
+			var suggestion = filter.suggest( word.raw.toLowerCase() );
+			word.addAnnotation(annotation.apply(suggestion));
 		}
 	}
 }
@@ -214,174 +288,22 @@ TextWordAnalyzer.prototype.markMatches = function( filter, annotation ){
 	for( var a=0; a<this.getWordCount(); a+=1 ){
 		var word = this._getWord(a);
 		if( filter.test( word.raw.toLowerCase() ) ){
-			word.addAnnotation(annotation);
+			var suggestion = filter.suggest( word.raw.toLowerCase() );
+			word.addAnnotation(annotation.apply(suggestion));
 		}
 	}
 }
 TextWordAnalyzer.prototype.generateTippy = function(){
 	// Todo: make a separate class OutputGenerator?
 	var output = '';
+	var tippyGenerator = new TippyHtmlGenerator('has-tooltip');
 	for( var i=0, l=this._parts.length; i<l; i+=1 ){
 		var part = this._parts[i];
 		if( part.isWord() && part.annotations.length > 0 ){
-			output += '<span class="has-tooltip" data-tippy-content="'
-			output += part.annotations.join(', ');
-			output += '">';
-			output += part.raw;
-			output += '</span>';
+			output += tippyGenerator.generateHtmlForWord( part );
 		}else{
 			output += part.raw;
 		}
 	}
 	return output;
 }
-
-/**
- * The Text class can be used to annotate sections of text
- * at arbitrary positions and generate another representation
- * of the text with the annotations. It does not understand
- * anything about words or word boundaries.
- */
-function Text(raw_text){
-	this._raw = raw_text;
-	this._selections = [];
-	this.annotations = [];
-}
-Text.prototype.has_valid_selection = function(){
-	return this._selections.length > 0;
-};
-Text.prototype.select_by_index = function(start,end){
-	this._selections = [new Range(start,end)];
-};
-Text.prototype.select_by_search_string = function(str){
-	var start = this._raw.indexOf(str);
-	if( start != -1 ){
-		this._selections = [
-			new Range(start,start+str.length)
-		];
-	}
-};
-Text.prototype.select_by_search_regexp = function(regexp){
-	//var match = this._raw.match(regexp);
-	var match = regexp.exec( this._raw );
-	this._selections = [];
-	while( match !== null ){
-		var start = match.index;
-		var end = start + match[0].length;
-		this._selections.push( new Range(start,end) );
-		match = regexp.exec( this._raw );
-	}
-};
-Text.prototype.annotate_selection = function(meta_data){
-	if( ! this.has_valid_selection() ){
-		throw new Error('Invalid selection');
-	}
-	for( var i=0, l=this._selections.length; i<l; i+=1 ){
-		var selection = this._selections[i];
-		this.annotations.push( new Annotation(
-			selection.copy(),
-			this._raw.slice(selection.start,selection.end),
-			meta_data
-		) );
-	}
-};
-Text.prototype.insert_at_selection = function(value){
-	if( ! this.has_valid_selection() ){
-		throw new Error('Invalid selection');
-	}
-	for( var i=0, l=this._selections.length; i<l; i+=1 ){
-		var selection = this._selections[i];
-		if( selection.start !== selection.end ){
-			throw new Error('Invalid selection');
-		}
-		this._insert_at_position( selection.start, value );
-	}
-};
-Text.prototype._insert_at_position = function(index,value){
-	for( var i=0, l=this.annotations.length; i<l; i+=1 ){
-		var annotation = this.annotations[i];
-		if( annotation.range.start >= index ){
-			annotation.range.start += value.length;
-		}
-		if( annotation.range.end >= index ){
-			annotation.range.end += value.length;
-		}
-	}
-	this._raw = this._raw.slice(0,index) + value + this._raw.slice(index);
-};
-Text.prototype.annotations_to_markdown = function(){
-	// TODO: copy the entire Text object first and work on the copy
-	// because this destroys the original
-	for( var i=0, l=this.annotations.length; i<l; i+=1 ){
-		var annotation = this.annotations[i];
-		this.select_by_index( annotation.range.start, annotation.range.start );
-		this.insert_at_selection( '(' );
-		this.select_by_index( annotation.range.end, annotation.range.end );
-		this.insert_at_selection( ')['+annotation.meta+']' );
-	}
-	// TODO: delete all annotations?
-};
-Text.prototype.markup_annotations = function( process_annotation ){
-	// TODO: copy the entire Text object first and work on the copy
-	// because this destroys the original
-	for( var i=0, l=this.annotations.length; i<l; i+=1 ){
-		var annotation = this.annotations[i];
-		var new_markup = process_annotation( annotation );
-		this.select_by_index( annotation.range.start, annotation.range.start );
-		this.insert_at_selection( new_markup.start );
-		this.select_by_index( annotation.range.end, annotation.range.end );
-		this.insert_at_selection( new_markup.end );
-	}
-	// TODO: delete all annotations?
-};
-
-function Range(start,end){
-	this.start = start;
-	this.end = end;
-}
-Range.prototype.move = function( delta ){
-	this.start += delta;
-	this.end += delta;
-};
-Range.prototype.copy = function( ){
-	return new Range(this.start,this.end);
-};
-
-function Annotation( range, value, meta ){
-	this.range = range;
-	this.value = value;
-	this.meta = meta;
-}
-Annotation.prototype.set_range = function(range){
-	this.range = range;
-}
-Annotation.prototype.set_value = function(value){
-	this.value = value;
-}
-Annotation.prototype.set_meta = function(meta){
-	this.meta = meta;
-}
-Annotation.prototype.copy = function(){
-	return new Annotation(
-		this.range.copy(),
-		this.value,
-		this.meta
-	);
-}
-
-var text = new Text('This is some text');
-//text.select_by_index( 4, 7 );
-//text.annotate_selection('Wut?');
-
-text.select_by_search_string( 'some' );
-text.annotate_selection('We found some');
-
-text.select_by_search_regexp( /is/g );
-text.annotate_selection('We found is');
-
-text.select_by_index( 0, 0 );
-text.insert_at_selection( 'Nothing! ' );
-
-text.annotations_to_markdown();
-
-console.info( text );

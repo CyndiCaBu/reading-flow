@@ -40,7 +40,13 @@ body {
 	min-height: 90%;
 }
 .has-tooltip {
+	
+}
+.error {
 	background-color: #FAA;
+}
+.capitalization {
+	background-color: #AAF;
 }
 </style>
 
@@ -59,6 +65,7 @@ body {
 	//var filterNgsl = new WordFilterBloom(); // 2-8ms, 4ms (5000 doc, 3500 db)
 	var filterNgsl = new WordFilterHashMap(); // 2-4ms, 3ms (5000 doc, 3500 db)
 	//var filterNgsl = new WordFilterListSearch(); // 59-81ms, 65ms (5000 doc, 3500 db)
+	var capitalizationRule = new CapitalizationFilter( true );
 
 	// Note: we can serialize the filters and load them that way
 	// It may make more sense to do that when we have a huge number
@@ -66,9 +73,14 @@ body {
 	// benefit from that).
 	$.get( './lists/ngsl_1000.txt', function(response){
 		var lines = response.split('\n');
-		console.info( lines );
 		for( var i=0, l=lines.length; i<l; i+=1 ){
 			filterNgsl.add( lines[i].trim() );
+		}
+	});
+	$.get( './lists/capitalization.txt', function(response){
+		var lines = response.split('\n');
+		for( var i=0, l=lines.length; i<l; i+=1 ){
+			capitalizationRule.add( lines[i].trim() );
 		}
 	});
 
@@ -76,6 +88,7 @@ body {
 	// tippy('.has-tooltip');
 	tippy.delegate('#myEditor', {
 		target: '.has-tooltip',
+		allowHTML: true
 	});
 	
 	$('#btn-run').on('click',function(){
@@ -84,7 +97,14 @@ body {
 		
 		var stuff = new TextWordAnalyzer( text );
 		console.time('Marking failures');
-		stuff.markFailures( filterNgsl, 'not in ngsl' );
+		stuff.markFailures(
+			filterNgsl,
+			new Annotation( 'This word is not in the New General Service List', 'error' )
+		);
+		stuff.markFailures(
+			capitalizationRule,
+			new Annotation( 'The capitalization is incorrect, it should be: $1', 'capitalization' )
+		);
 		console.timeEnd('Marking failures');
 		var html = stuff.generateTippy();
 		$('#myEditor').html( nlm.plainToHtml(html) );
