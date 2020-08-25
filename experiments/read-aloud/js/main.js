@@ -61,5 +61,47 @@ $(function(){
 		utterThis.rate = 1.0;
 		synth.speak(utterThis);
 	});
+	
+	function sayWord( $sentence ){
+		var index = $sentence.data('index');
+		var $word = $sentence.find('.word').eq(index);
+		if( $word.length === 0 ){
+			return;
+		}
+		$word.addClass( 'saying' );
+		var textToSay = $word[0].textContent;
+		var utterThis = new SpeechSynthesisUtterance(textToSay);
+		$sentence.data('index',index+1);
+		utterThis.onend = function(){
+			$word.removeClass('saying');
+			sayWord( $sentence );
+		};
+		var selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
+		for(i = 0; i < voices.length ; i++) {
+			if(voices[i].name === selectedOption) {
+				utterThis.voice = voices[i];
+				break;
+			}
+		}
+		utterThis.pitch = 1.0;
+		utterThis.rate = 1.0;
+		synth.speak(utterThis);
+	}
+	
+	$('.read-word-by-word').on('click',function(){
+		var textWords = this.textContent.split(/\s+/);
+		console.info( textWords );
+		var domWords = [];
+		for( var i=0, l=textWords.length; i<l; i+=1 ){
+			domWords.push( $('<span class="word">'+textWords[i]+'</span>') );
+			domWords.push( ' ' );
+		}
+		
+		var $this = $(this);
+		$this.data('index',0);
+		$this.empty().append( domWords );
+		
+		sayWord( $this );
+	});
 });
 
